@@ -25,6 +25,7 @@
                     <th>Employee Name</th>
                     <th>Attendance Date</th>
                     <th>Status</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -34,6 +35,11 @@
                         <td>{{ attendance.employee.user.username }}</td>
                         <td>{{ attendance.date|date:"F j, Y" }}</td>
                         <td>{{ attendance.status }}</td>
+                        <td>
+                            {% if user.is_staff %}
+                                <a href="{% url 'update_attendance' attendance.id %}" class="btn btn-warning">Any Change?</a>
+                                <a href="{% url 'delete_attendance' attendance.id %}" class="btn btn-danger">Don't want?</a>                            {% endif %}
+                        </td>
                     </tr>
                 {% empty %}
                     <tr>

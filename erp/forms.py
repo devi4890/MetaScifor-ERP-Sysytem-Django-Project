@@ -1,5 +1,5 @@
 from django import forms
-from.models import Employee,InventoryItem,Sale,Expense,Payroll
+from.models import Employee,InventoryItem,Sale,Expense,Payroll,Attendance
 from django.contrib.auth.models import User
 
 from django import forms
@@ -88,3 +88,8 @@ class PayrollForm(forms.ModelForm):
     class Meta:
         model = Payroll
         fields = ['employee', 'month', 'year', 'basic_salary', 'bonus', 'deductions', 'net_salary', 'payment_date']
+
+class AttendanceForm(forms.ModelForm):
+    class Meta:
+        model = Attendance
+        fields = ['employee', 'date', 'status']

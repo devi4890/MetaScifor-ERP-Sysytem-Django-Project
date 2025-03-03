@@ -41,4 +41,6 @@ urlpatterns = [
     path('employee_dashboard/', views.employee_dashboard, name='employee_dashboard'),
     path('payroll/update/<int:payroll_id>/', views.update_payroll, name='update_payroll'),
     path('payroll/delete/<int:payroll_id>/', views.delete_payroll, name='delete_payroll'),
+    path('attendance/update/<int:attendance_id>/', views.update_attendance, name='update_attendance'),
+    path('attendance/delete/<int:attendance_id>/', views.delete_attendance, name='delete_attendance'),
 ]

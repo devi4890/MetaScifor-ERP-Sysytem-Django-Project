@@ -7,7 +7,7 @@ from .forms import PayrollForm
 from django.conf import settings
 from .models import Employee, InventoryItem, Sale, Expense,Contact,Payroll,Attendance
 from django.contrib.auth.models import User
-from.forms import EmployeeForm,InventoryForm,SaleForm,ExpenseForm,ContactForm
+from.forms import EmployeeForm,InventoryForm,SaleForm,ExpenseForm,ContactForm,AttendanceForm
 
 
 from django.contrib.auth.models import User
@@ -390,3 +390,24 @@ def delete_payroll(request, payroll_id):
     # Proceed to delete the payroll entry if the user is authorized
     payroll.delete()
     return redirect('manage_payroll')  # Redirect to the payroll list page after deletion
+
+@login_required
+def update_attendance(request, attendance_id):
+    attendance = get_object_or_404(Attendance, id=attendance_id)  # Get the attendance instance
+
+    if request.method == "POST":
+        form = AttendanceForm(request.POST, instance=attendance)  # Bind the form with POST data and the attendance instance
+        if form.is_valid():
+            form.save()  # Save the updated attendance
+            return redirect("manage_attendance")  # Redirect to the manage attendance page after updating
+        else:
+            print(form.errors)  # Print errors if the form is invalid
+    else:
+        form = AttendanceForm(instance=attendance)  # Prepopulate the form with existing data
+
+    return render(request, "update_attendance.html", {"form": form})
+
+def delete_attendance(request, attendance_id):
+    attendance = get_object_or_404(Attendance, id=attendance_id)
+    attendance.delete()
+    return redirect('manage_attendance')
