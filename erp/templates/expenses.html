@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+    <!-- Link to static CSS -->
+<link rel="stylesheet" href="{% static 'static/css/styles.css' %}">
+<body class="orders-page">
+
+<h2>Expense  Management</h2>
+<a href="{% url 'add_expense' %}" class="btn btn-primary btn-sm">Add New Expense</a>
+<table border="1">
+    <tr>
+        <th>Category</th>
+        <th>Amount</th>
+        <th>Date</th>
+        <th>Actions</th>
+    </tr>
+    {% for expense in expenses %}
+    <tr>
+    <td>{{expense.category}}</td>
+    <td>{{expense.amount}}</td>
+    <td>{{ expense.date|date:"M. d, Y, g:i a" }}
+    </td>
+    <td>
+        <!-- Action buttons for Edit and Delete -->
+        <a href="{% url 'update_expense' expense.pk %}" class="btn btn-warning btn-sm">Edit</a>
+        <a href="{% url 'delete_expense' expense.pk %}" class="btn btn-danger btn-sm">Delete</a>
+    </td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}
+</body>

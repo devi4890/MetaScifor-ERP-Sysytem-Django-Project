@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="col-md-6">
+        <div class="card shadow-lg border-primary p-4">
+            <div class="card-header bg-primary text-white text-center">
+                <h3>{{ title }}</h3>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    <div class="form-group mb-3">
+                        <label class="fw-bold">Item Name</label>
+                        {{ form.name }}
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label class="fw-bold">Quantity</label>
+                        {{ form.quantity }}
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label class="fw-bold">Price per Unit</label>
+                        {{ form.price_per_unit }}
+                    </div>
+
+                    <button type="submit" class="btn btn-success w-100 mt-3">Save Item</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

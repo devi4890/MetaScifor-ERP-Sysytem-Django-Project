@@ -1,0 +1,11 @@
+<!-- employee_form.html -->
+{% extends 'base.html' %}
+{% block content %}
+  <h2>{{ title }}</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+  </form>
+  <a href="{% url 'manage_employees' %}">Back to Employee List</a>
+{% endblock %}

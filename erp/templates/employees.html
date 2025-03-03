@@ -1,0 +1,33 @@
+<!-- employees.html -->
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Employees</h2>
+  <a href="{% url 'create_employee' %}">Add New Employee</a>
+  <table border="1" cellspacing="0" cellpadding="5">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Position</th>
+        <th>Salary</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for employee in employees %}
+      <tr>
+        <td>{{ employee.user.username }}</td>
+        <td>{{ employee.position }}</td>
+        <td>{{ employee.salary }}</td>
+        <td>
+          <a href="{% url 'update_employee' employee.pk %}">Edit</a> |
+          <a href="{% url 'delete_employee' employee.pk %}">Delete</a>
+        </td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="4">No employees found.</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

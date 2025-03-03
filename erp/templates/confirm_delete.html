@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'static/css/styles.css' %}">
+
+<!-- Confirm Deletion Section -->
+<div class="container my-5">
+    <div class="text-center">
+        <h3>Are you sure you want to delete the following inventory item?</h3>
+        <div class="card my-4 p-3">
+            <h5><strong>Item:</strong> {{ object.name }}</h5>
+            <p><strong>Quantity:</strong> {{ object.quantity }}</p>
+            <p><strong>Price per Unit:</strong> ${{ object.price_per_unit }}</p>
+        </div>
+
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Yes, Delete</button>
+            <a href="{% url 'manage_inventory' %}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

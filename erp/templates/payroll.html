@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h2>Payroll</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Employee Name</th>
+                    <th>Basic Salary</th>
+                    <th>Bonus</th>
+                    <th>Deductions</th>
+                    <th>Net Salary</th>
+                    <th>Payment Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for payroll in payrolls %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ payroll.employee.user.username }}</td>
+                        <td>{{ payroll.basic_salary }}</td>
+                        <td>{{ payroll.bonus }}</td>
+                        <td>{{ payroll.deductions }}</td>
+                        <td>{{ payroll.net_salary }}</td>
+                        <td>{{ payroll.payment_date|date:"F j, Y" }}</td>
+                        <td>
+                            {% if user.is_staff %}
+                                <a href="{% url 'update_payroll' payroll.id %}" class="btn btn-warning">Update</a>
+                                <a href="{% url 'delete_payroll' payroll.id %}" class="btn btn-danger">Delete</a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="javascript:history.back()" class="btn btn-primary mb-3">Back</a>
+    </div>
+{% endblock %}

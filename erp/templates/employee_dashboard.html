@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block nav %}
+    <!-- Empty to hide nav bar on employee dashboard -->
+{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<h2 class="text-center mb-4 text-primary">Welcome To Employee Dashboard</h2>
+
+<!-- Dashboard Stats -->
+<div class="row text-center">
+    <!-- Payroll Card -->
+    <div class="col-md-6 mb-4">
+        <a href="{% url 'manage_payroll' %}" class="card-link">
+            <div class="card bg-success text-white shadow-lg rectangular-card">
+                <div class="card-body d-flex">
+                    <img src="{% static 'images/payroll.png' %}" class="card-img-left" alt="Payroll" />
+                    <div class="card-text ml-3">
+                        <h3 class="card-title">Payroll</h3>
+                        <p>View salary details</p>
+                        <p class="card-description">Check your salary and payment history.</p>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <!-- Attendance Card -->
+    <div class="col-md-6 mb-4">
+        <a href="{% url 'manage_attendance' %}" class="card-link">
+            <div class="card bg-info text-white shadow-lg rectangular-card">
+                <div class="card-body d-flex">
+                    <img src="{% static 'images/attendance.png' %}" class="card-img-left" alt="Attendance" />
+                    <div class="card-text ml-3">
+                        <h3 class="card-title">Attendance</h3>
+                        <p>Track your attendance records</p>
+                        <p class="card-description">Check your attendance history.</p>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+    <!-- Link to static CSS -->
+    <link rel="stylesheet" href="{% static 'static/css/styles.css' %}">
+    
+    <body class="sales-page">
+        <div class="container">
+            <h2>Sales Management</h2>
+            <a href="{% url 'add_sale' %}" class="btn btn-primary mb-3">Add New Sale</a>
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Customer</th>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Total Price</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for sale in sales %}
+                        <tr>
+                            <td>{{ sale.customer_name }}</td>
+                            <td>{{ sale.product.name }}</td> <!-- Correct reference for product name -->
+                            <td>{{ sale.quantity }}</td>
+                            <td>${{ sale.total_price }}</td> <!-- Formatted total price -->
+                            <td>{{ sale.date|date:"Y-m-d H:i" }}</td> <!-- Formatting the date -->
+                            <td>
+                                <a href="{% url 'update_sale' sale.pk %}" class="btn btn-warning btn-sm">Edit</a>
+                                <a href="{% url 'delete_sale' sale.pk %}" class="btn btn-danger btn-sm">Delete</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </body>
+{% endblock %}

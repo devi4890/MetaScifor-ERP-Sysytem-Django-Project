@@ -1,0 +1,321 @@
+/* Custom Styles for Dashboard */
+body {
+    background: linear-gradient(135deg, #185f99, #c9d9df, #d1e2f1);
+    background-size: 300% 300%;
+    animation: backgroundGradient 10s ease infinite;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+}
+
+@keyframes backgroundGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+header {
+    background: linear-gradient(45deg, #0aab35, #feb47b);
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header .logo h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    background: linear-gradient(90deg, #333, #555); /* Subtle dark gradient for nav */
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: rgb(244, 238, 238);
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 12px 20px;
+    border-radius: 25px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+nav ul li a:hover {
+    background: linear-gradient(45deg, #5bc0de, #1e90ff); /* Blue gradient on hover */
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+footer {
+    background: linear-gradient(45deg, #20a876, #28b7a4);
+    color: rgb(218, 76, 76);
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    animation: footerGradientAnimation 5s ease-in-out infinite;
+}
+
+footer p {
+    margin: 0;
+}
+
+@keyframes footerGradientAnimation {
+    0% { background: linear-gradient(45deg, #a9c80e, #28b7a4); }
+    50% { background: linear-gradient(45deg, #11723d, #20a876); }
+    100% { background: linear-gradient(45deg, #20a876, #9fa3e4); }
+}
+
+/* Rectangular Card Styling with Background Color */
+.rectangular-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 150px; /* Adjust the height of the card */
+    background-color: #c45e5e; /* Add a background color */
+    border-radius: 10px; /* Optional: Round the corners of the card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add some shadow for effect */
+}
+
+.card-body {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px; /* Optional: Add padding inside the card */
+}
+
+.card-img-left {
+    width: 120px; /* Set a fixed width for the image */
+    height: 100px; /* Set a fixed height for the image */
+    object-fit: cover; /* Ensures the image does not stretch */
+    border-radius: 5px;
+}
+
+.card-text {
+    flex-grow: 1;
+    margin-left: 15px; /* Space between the image and text */
+}
+
+.card-description {
+    font-size: 0.9rem;
+    color: #f8f9fa;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.card-text p {
+    font-size: 1rem;
+}
+
+
+
+/* Manage Buttons */
+.btn-outline-primary, .btn-outline-secondary, .btn-outline-success, .btn-outline-danger {
+    padding: 12px 35px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    border-radius: 50px;
+    transition: background-color 0.3s, transform 0.3s ease-in-out, box-shadow 0.3s ease;
+    border: 2px solid transparent;
+    background: linear-gradient(45deg, #ff7e5f, #feb47b);
+    color: white;
+}
+
+.btn-outline-primary:hover {
+    background-color: #007bff;
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 255, 0.2); /* Blue glow on hover */
+}
+
+.btn-outline-secondary:hover {
+    background-color: #6c757d;
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(108, 117, 125, 0.2);
+}
+
+.btn-outline-success:hover {
+    background-color: #28a745;
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.2);
+}
+
+.btn-outline-danger:hover {
+    background-color: #dc3545;
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(220, 53, 69, 0.2);
+}
+
+
+
+
+
+/* === General Table Styling === */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 20px 0;
+    font-size: 1.1rem;
+    text-align: left;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+/* === Table Header === */
+th {
+    padding: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-align: center;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+/* === Table Cells === */
+td {
+    padding: 12px;
+    text-align: center;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* === Hover Effect on Rows === */
+tr:hover {
+    transform: scale(1.02);
+    transition: 0.3s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* === Alternating Row Colors (Striped Effect) === */
+tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* === Glassmorphism Effect === */
+.sales-page table,
+.inventory-page table,
+.orders-page table {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+}
+
+/* === Unique Table Styles for Each Page === */
+
+/* 🔥 Sales Page Table */
+.sales-page table {
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    color: white;
+}
+
+.sales-page th {
+    background: rgba(255, 126, 95, 0.5);
+}
+
+/* 🔵 Inventory Page Table */
+.inventory-page table {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+}
+
+.inventory-page th {
+    background: rgba(106, 17, 203, 0.5);
+}
+
+/* 🟢 Orders Page Table */
+.orders-page table {
+    background: linear-gradient(135deg, #00b09b, #96c93d);
+    color: white;
+}
+
+.orders-page th {
+    background: rgba(0, 176, 155, 0.5);
+}
+
+/* === Responsive Design for Small Screens === */
+@media (max-width: 768px) {
+    table {
+        font-size: 1rem;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+}
+
+
+/* === Employees Section Styling === */
+h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+/* === Employee List Container === */
+ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* === Employee Card Style === */
+.user {
+    background: linear-gradient(135deg, #00c6ff, #0072ff); /* Gradient Background */
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 15px 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    text-align: center;
+    min-width: 250px;
+    max-width: 400px;
+}
+
+/* === Hover Effect on Employee Cards === */
+.user:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* === Responsive Design for Small Screens === */
+@media (max-width: 768px) {
+    .user {
+        font-size: 1rem;
+        padding: 12px 20px;
+    }
+}
+main{padding-bottom: 97px;}
+
+
+
